@@ -33,7 +33,10 @@ const TodoList = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log("Submitted");
+  }
+
+  function handleChange(e) {
+    setTodoInput(e.target.value);
   }
 
   return (
@@ -43,13 +46,20 @@ const TodoList = () => {
           className="input-ghost-primary input"
           placeholder="What do you need to do?"
           value={todoInput}
+          onChange={handleChange}
         />
         <span>
           <button className="btn btn-outline-primary">Submit</button>
         </span>
       </form>
       {listItems.map((listItem) => (
-        <Todo text={listItem.text} key={listItem.id} />
+        <Todo
+          text={listItem.text}
+          key={listItem.id}
+          id={listItem.id}
+          listItems={listItems}
+          setListItems={setListItems}
+        />
       ))}
     </div>
   );

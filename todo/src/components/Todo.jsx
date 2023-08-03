@@ -9,8 +9,9 @@ const Todo = (props) => {
     console.log("Checked");
   }
 
-  function handleDelete() {
-    console.log("Deleted");
+  function handleDelete(id) {
+    const newList = props.listItems.filter((l) => l.id !== id);
+    props.setListItems(newList);
   }
 
   return (
@@ -21,7 +22,7 @@ const Todo = (props) => {
       <span className={checked ? "selected" : ""}>{props.text}</span>
       <button
         className="delete align-left bg-red-600 p-1 rounded-md"
-        onClick={handleDelete}
+        onClick={() => handleDelete(props.id)}
       >
         <RxCross1 />
       </button>
