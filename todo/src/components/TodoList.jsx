@@ -1,42 +1,40 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Todo from "./Todo";
 
 const TodoList = () => {
-  const [listItems, setListItems] = useState([
-    {
-      id: Math.random(),
-      text: "Hola",
-      checked: false,
-    },
-    {
-      id: Math.random(),
-      text: "Hello",
-      checked: false,
-    },
-    {
-      id: Math.random(),
-      text: "Whats Up",
-      checked: false,
-    },
-    {
-      id: Math.random(),
-      text: "Hows it Goin",
-      checked: false,
-    },
-    {
-      id: Math.random(),
-      text: "What you doing later",
-      checked: false,
-    },
-  ]);
+  const [listItems, setListItems] = useState(() => {
+    const localValue = localStorage.getItem("ITEMS");
+    if (localValue == null) return [];
+
+    return JSON.parse(localValue);
+  });
   const [todoInput, setTodoInput] = useState("");
+  const numTodos = listItems.length;
+  useEffect(() => {
+    localStorage.setItem("ITEMS", JSON.stringify(listItems));
+  }, [listItems]);
 
   function handleSubmit(e) {
     e.preventDefault();
+
+    if (todoInput === "") return;
+
+    setListItems((currentTodos) => {
+      return [
+        ...currentTodos,
+        { id: crypto.randomUUID(), text: todoInput, completed: false },
+      ];
+    });
+
+    setTodoInput("");
   }
 
   function handleChange(e) {
     setTodoInput(e.target.value);
+  }
+
+  function handleReset() {
+    setListItems([]);
   }
 
   return (
@@ -48,10 +46,16 @@ const TodoList = () => {
           value={todoInput}
           onChange={handleChange}
         />
-        <span>
+        <span className="flex gap-1">
           <button className="btn btn-outline-primary">Submit</button>
+          {numTodos > 0 && (
+            <button className="btn btn-outline-error" onClick={handleReset}>
+              Reset
+            </button>
+          )}
         </span>
       </form>
+      {numTodos < 1 && <p className="text-center mt-10 text-2xl">No To-Do's</p>}
       {listItems.map((listItem) => (
         <Todo
           text={listItem.text}
