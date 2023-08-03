@@ -6,3 +6,15 @@
   text-decoration: line-through;
   text-decoration-thickness: 2px;
 }
+
+.delete {
+  transition: all 0.1s ease-in-out;
+}
+
+.delete:hover {
+  background-color: rgb(185, 30, 30);
+}
+
+.delete:active {
+  background-color: rgb(153, 24, 24);
+}

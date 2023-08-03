@@ -9,13 +9,20 @@ const Todo = (props) => {
     console.log("Checked");
   }
 
+  function handleDelete() {
+    console.log("Deleted");
+  }
+
   return (
     <div className="flex justify-between mt-10 mx-[35%] gap-5">
       <label className="flex cursor-pointer gap-2 align-middle">
         <input type="checkbox" className="checkbox" onChange={handleCheck} />
       </label>
       <span className={checked ? "selected" : ""}>{props.text}</span>
-      <button className="align-left bg-red-600 p-1 rounded-md">
+      <button
+        className="delete align-left bg-red-600 p-1 rounded-md"
+        onClick={handleDelete}
+      >
         <RxCross1 />
       </button>
     </div>
