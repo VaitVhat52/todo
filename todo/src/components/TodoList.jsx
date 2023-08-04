@@ -39,10 +39,13 @@ const TodoList = () => {
 
   return (
     <div>
-      <form className="flex gap-1 justify-center mt-10" onSubmit={handleSubmit}>
+      <form
+        className="todoForm flex gap-1 justify-center mt-10"
+        onSubmit={handleSubmit}
+      >
         <input
-          className="input-ghost-primary input"
-          placeholder="What do you need to do?"
+          className="todoInput input-ghost-primary input"
+          placeholder="To Do..."
           value={todoInput}
           onChange={handleChange}
         />

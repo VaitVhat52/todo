@@ -18,3 +18,19 @@
 .delete:active {
   background-color: rgb(153, 24, 24);
 }
+
+@media screen and (max-width: 565px) {
+  .todoItem {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
+  .todoForm {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .todoForm button {
+    margin-top: 1.25rem;
+  }
+}

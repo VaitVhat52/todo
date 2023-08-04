@@ -14,7 +14,7 @@ const Todo = (props) => {
   }
 
   return (
-    <div className="flex justify-between mt-10 mx-[40%] gap-5">
+    <div className="todoItem flex justify-between mt-10 mx-[40%] gap-5">
       <label className="flex cursor-pointer gap-2 align-middle">
         <input type="checkbox" className="checkbox" onChange={handleCheck} />
       </label>
