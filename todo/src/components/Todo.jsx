@@ -27,7 +27,7 @@ const Todo = (props) => {
         className="delete align-left bg-red-600 p-1 rounded-md"
         onClick={() => handleDelete(props.id)}
       >
-        <RxCross1 />
+        <RxCross1 color=“white” />
       </button>
     </div>
   );
