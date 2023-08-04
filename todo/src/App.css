@@ -19,7 +19,7 @@
   background-color: rgb(153, 24, 24);
 }
 
-@media screen and (max-width: 565px) {
+@media screen and (max-width: 850px) {
   .todoItem {
     margin-left: 50px;
     margin-right: 50px;
