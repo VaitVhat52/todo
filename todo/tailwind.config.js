@@ -5,8 +5,4 @@ export default {
     extend: {},
   },
   plugins: [require("rippleui")],
-
-  rippleui: {
-    removeThemes: ["light"],
-  },
 };

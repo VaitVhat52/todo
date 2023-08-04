@@ -16,7 +16,11 @@ const Todo = (props) => {
   return (
     <div className="todoItem flex justify-between mt-10 mx-[40%] gap-5">
       <label className="flex cursor-pointer gap-2 align-middle">
-        <input type="checkbox" className="checkbox" onChange={handleCheck} />
+        <input
+          type="checkbox"
+          className="checkbox checkbox-bordered-primary"
+          onChange={handleCheck}
+        />
       </label>
       <span className={checked ? "selected" : ""}>{props.text}</span>
       <button
